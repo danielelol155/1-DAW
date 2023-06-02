@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p
+        {
+            color:blue
+        }
+        table 
+        {
+        table-layout: fixed;
+        text-align:left;
+        width: 40%;
+        border-collapse: collapse;
+        border: 1px solid black;
+        }
+        tr 
+        {
+        table-layout: fixed;
+        width: 100%;
+        color:blue;
+        border-collapse: collapse;
+        border: 1px solid black;
+        }
+        td 
+        {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+        }
+        div
+        {
+            color:blue
+        }
+
+        .a1
+        {
+            color:green;
+            border: 0px solid black;
+        }
+        .a2
+        {
+            color:blue
+        }
+        .a3
+        {
+            color:purple
+        }
+        </style>
+
+</head>
+
+<body>
+    <table>
+        <form action="ejemplo.php" method="get">
+        <strong> 
+            <tr>
+                <td colspan="2" >
+                <b>
+                <p style="color:red">Los campos marcados con un * son obligatorios</p>
+                </b> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nombre: 
+                </td>
+                <td>
+                    <input placeholder="Escribe tu nombre" type="text" name="nombre" size="40">
+                    *
+                </td>
+            </tr>
+            <tr>
+                <td>Apellidos:</td>
+                <td>
+                    <input placeholder="Escribe tus apellidos" type="text" name="apellidos" size="40">
+                    *
+                </td>
+            </tr>
+            <tr>
+                <td>Direccion:</td>
+                <td>
+                    <input type="text" name="direccion" min="1900">
+                </td>
+            </tr>
+            <tr>
+                <td>Ciudad:</td>
+                <td>
+                    <input type="text" name="ciudad" min="1900">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Provincia/Estado:</td>
+                <td>
+                    <input type="text" name="provincia" min="1900">
+                </td>
+            </tr>
+            <tr>
+                <td>Codigo Postal:</td>
+                <td>
+                    <input stype="number" name="cp">
+                </td>
+            </tr>
+    
+            <tr>
+                <td>Pais:</td>
+                <td>
+                    <input type="text" name="pais" min="1900">
+                </td>
+            </tr>
+    
+            <tr>
+                <td>Dni:</td>
+                <td>
+                    <input type="text" name="dni" min="1900">
+                    *
+                </td>
+            </tr>
+            
+            <tr>
+                <td>¿Hijos?</td>
+                <td>
+                    <select name="hijos" aria-placeholder="0">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4 o mas</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                Nombre de usuario:
+                </td>
+                <td>
+                    <input type="text" name="user" min="1900">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                Contraseña:
+                </td>
+                <td>
+                    <input type="password" name="passwd" min="1900">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Repetir Contraseña: 
+                </td>
+                <td>
+                    <input type="password" name="passwd" min="1900">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Correo electronico:
+                </td>
+                <td>
+                    <input type="text" name="gmail" min="1900">
+                *
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Telefono fijo:
+                </td>
+                <td>
+                    <input type="number" name="numf" min="1900">
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                Grupo de edad:
+                </td>
+                <td>
+                    <select name="menu[]" size="4" multiple>
+                        <option value="1">0 a 18</option>
+                        <option value="2">19 a 25</option>
+                        <option value="3">26 a 35</option>
+                        <option value="4">36 a 45</option>
+                        
+                      </select>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                Color favorito:
+                </td>
+                <td>
+                    <input type="color" name="color" min="1900">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Observaciones: 
+                </td>
+                <td>
+                    <textarea placeholder="Añade tus observaciones.Maximo 350 caracteres" rows="4" cols="40"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="submit" value="Enviar" style="background-color:green;color:black">
+                </td>
+                <td>
+                    <input type="reset" value="Borrar" style="background-color: red;color:black;border-color:yellow">
+                </td>
+            </tr>
+        </strong>
+        
+        </form>
+        </table>
+    
+    
+    
+    
+
+</body>
+</html>

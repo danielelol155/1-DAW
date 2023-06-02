@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="yes"?>
+<!-- Para asociarlo con el xsd se hace con el standardalone= "yes", el xsd es el que marca las reglas, el tipo de datos, la estructura, los rangos permitidos... -->
+<!-- Cómo se estructura xml: Táctica de salami, muñeca rusa y persiana veneciana -> https://www.oracle.com/technical-resources/articles/java/design-patterns.html -->
+
+
+<!-- Lenguaje de marcas para enviar datos, el xml envia los datos y el xsd es el que recibe la información (que es un archivo dtd). -->
+<!-- Es un lenguaje de marcas en el que creamos nuestras propias etiquetas -->
+<!-- Va por niveles, alumnos sería el primer nivel, dentro de esto vamos creando etiquetas sobre lo que queramos saber de "alumnos" -->
+<!-- La última etiqueta que abro es la primera etiqueta que tengo que cerrar; si no es así, a diferencia de html da fallo -->
+<!-- 3 tipos de etiquetas: la de apertura, la de cierre o la vacía, que va con una / al final de la etiqueta, 
+    ej: <fechaNacimiento/> ->indica que la fecha de nacimiento está vacía -->
+<!-- El contenido del elemento o de la eiqueta equivale al valor -->
+<!-- Las etiquetas son sensibles en cuanto a las mayúsculas y minúsculas -> <nombre> y <Nombre> no serian la misma etiqueta -->
+
+<!-- Esta es muñeca rusa, una dentro de otra -->
+<alumnos>
+    <alumno>
+        <nombre>Pepe</nombre>
+        <apellidos>Perez Cruz</apellidos>
+        <fechaNacimiento>01/01/2000</fechaNacimiento>
+        <matriculado>1</matriculado> 
+    </alumno>
+
+    <alumno>
+        <nombre>Juan</nombre>
+        <apellidos>Lopez Gonzales</apellidos>
+        <fechaNacimiento>21/12/2000</fechaNacimiento>
+        <matriculado>0</matriculado>
+    </alumno>
+
+    <!-- Podemos definir de esta otra manera: -->
+    <alumno nombre="Luis" apellidos="Roche Perez" fechaNacimiento="30/05/2000"></alumno>
+
+</alumnos>
+
+<!-- la de salami estan todas las etiquetas en un mismo nivel y tendría que declarar cada etiqueta alumno con un nombre diferente para diferenciarlo -->
+<!--  -->
+
+<!-- Si utilizamos determinados caracteres, estos no funcionan en xml, por ejemplo, 
+    el & es un caracter no permitido puesto que es una palabra reservada del propio lenguaje, 
+    si lo queremos usar tendremos que aplicar el CDATA para evitar errores; tambien pasa con las palabras acentuadas, el retorno de carro -->
+
+
+  

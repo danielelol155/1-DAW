@@ -1,0 +1,41 @@
+<!-- DTD created at Wed Apr 19 12:02:26 CEST 2023 with EditiX XML Editor (http://www.editix.com). Please insert an encoding attribute header for converting any DTD  -->
+
+<!ELEMENT  bdusuarios (usuario)+)>
+<!ELEMENT usuario (nombre,email,acceso)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT acceso EMPTY>
+
+
+<!--Tenemos que introducir los atributos usuario, clave, dni -->
+<!ATTLIST tag  attribute CDATA #REQUIRED>
+<!ATTLIST usuario clave CDATA #REQUIRED>
+<!--<!ATTLIST usuario clave CDATA #IMPLIED>
+<!ATTLIST usuario clave CDATA #FIXED>
+<!ATTLIST usuario clave CDATA #DEFAULT> -->
+
+<!--CDATA es el tipo de dato que pide el atributo: alfanumerico; ID: podemos meter atributos que ya esten definidos arriba; -->
+<usuario clave ="1234" dni="12345678Z">
+</usuario>
+
+<!ATTLIST nombre ID >
+<usuario nombre="Pepe">
+</usuario>
+<!--Nombre seria un atributo de usuario que haría referencia al atributo nombre -->
+<!--#REQUIRED indica que es obligatorio; #FIXED es un valor fijo y no se puede cambiar en todo el documento, #DEFAULT valor por defecto pero si permite cambiar. #IMPLIED no es obligatorio  -->
+
+<!--Ejemplo que cumple con las especificaciones del esquema -->
+<usuarios>
+	<usuario clave="1234" dni="87654321A">
+		<nombre>Pepe</nombre>
+		<email>pepe@hotmail.com</email>
+		<acceso>El usuario ha accedido a &web</acceso>
+	</usuario>
+</usuarios>
+
+
+
+
+<!--ENTIDADES: valores que están dentro de las etiquetas. Constante de la que hacemos uso dentro de los valores -->
+<!--se define la constante web y se sustituye por ese valor; para acceder a ese valor se usa & -->
+<!ENTITY web "http://miweb.es">

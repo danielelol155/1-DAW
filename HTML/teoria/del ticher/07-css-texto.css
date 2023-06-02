@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    color:#333;
+}
+/* Utilizando estilos de clase */
+/* Crear un estilo encabezado */
+.encabezado {
+   font-size: 25pt; 
+   font-weight: 800;
+   text-align: center;
+}
+/* Crear un estilo para el texto normal */
+.texto-normal {
+    font-size: 16pt;
+    color: brown;
+}
+/* Crear un estilo para un párrafo con alineación justificada  */
+.justificado {
+    text-align: justify;
+}
+
+/* Crear un estilo para el subrayado de color verde */
+.sub-verde {
+    color: green;
+    text-decoration: underline double;
+    text-decoration-color: red;
+}
+/* Crear un estilo para que la negrita aparezca en rojo */
+.negrita-rojo {
+    font-weight: 800;
+    color: red;
+}

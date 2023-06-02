@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--Los elementos se construyen:
+        xs:element Nombre tipo(type) valor(default/fixed)-->
+        <!-- Indicadores de ocurrencias
+        maxoccurs indica el valor máximo del número de ocurrencias
+        que aparece la etiqueta
+        minoccurs indica el valor de mínimo del número de veces
+        que aparece la etiqueta-->
+
+        <!-- Crear un tipo de dato por nosotros que tenga una serie de restrigciones -->
+        <xs:simpleType name="TotalLong">
+            <!-- Restricciones se introducen con xd:restriction, en la restrigcion indicamos el tipo de dato que va a contener -->
+            <!-- Estas son las restricciones de una cadena de texto -->
+            <xs:restriction base="xs:string">
+                <!-- Estamos obligando que la longitud sea 10 con length value -->
+                <xs:length value="10"/>
+                <!-- Mínimo de longitud -->
+                <xs:minLength value="1"/>
+                <!-- Máximo de longitud -->
+                <xs:maxLength value="10"/>
+                <!-- Espacios en blanco: preserve es mantenerlos, collapse se eliminan y replace se reemplazan; pero no se sabe como indicar por qué se reemplaza -->
+                <xs:whiteSpace value="replace"/>
+                <!--El patron con la expresión regular que queremos aplicar; entre llaves se indica el máximo y mínimo de caracteres; pero mejor que se indice en el minLength y en el maxLength que es una restricción como tal  -->
+                <xs:pattern value="[a-zA-Z0-9]{1, 10}"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <!-- Crear restricciones para datos de tipo numérico, como puede ser la cantidad de stock -->
+        <xs:simpleType name="numeroPositivo">
+            <xs:restriction base="xs:int">
+                <!-- Indicamos el valor máximo que vamos a incluir -> que no exceda el stock a 100: no metemos más de 100 productos en el almacén -->
+                <!-- <xs:maxExclusive value="101"/> -->
+                <!-- Ahora el mínimo: no puede haber menos de 0 artículos en stock -->
+                <!-- <xs:minExclusive value="0"/> -->
+                <!-- Definir el rango que quiera utilizar. Lo único que estos incluyen los valores introducidos, cuando los dos anteriores excluyen los valores -->
+                <xs:minInclusive value="1"/>
+                <xs:maxExclusive value="100"/>
+                <!-- Números de dígitos que va a tener el campo; si el value estuviera en 2 solo se podría representar desde el 0 al 99 -->
+                <xs:totalDigits value="3"/>
+                <!-- Número de dígitos decimales que queremos expresar en un determinado número; como estamos definiendo un número entero positivo ponemos 0; si pusieramos a lo mejor un precio se podría indicar con 2 decimales en el value -->
+                <!-- Si fuera un float se le tendría que poner más de dos dígitos decimales para que no ded lugar a error -->
+                <xs:fractionDigits value="0"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <!-- Crear restricciones para el precio. decimal podemos poner dos dígitos decimales, el double se pueden hasta cuatro decimales -->
+        <xs:simpleType name="Precio">
+            <xs:restriction base="xs:double">
+                <xs:minInclusive value="0.00"/>
+                <!-- Si vamos a incluir cantidades muy altas no ponemos máximo -->
+                <!-- No va a haber un precio con más de 10 dígitos  -->
+                <xs:totalDigits value="10"/>
+                <!-- Número de decimales -->
+                <xs:fractionDigits value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <!-- Definir los elementos de una determinada categoria -->
+        <xs:simpleType name="ElementoCategoria">
+            <xs:restriction base="xs:string">
+            <!-- Obligamos que la categoría sea solo uno de estos cuatro valores, si introducen otros, el esquema da fallo e indica que los valores no se corresponden con los datos indicados -->
+                <xs:enumeration value="Monitores"></xs:enumeration>
+                <xs:enumeration value="Ratones"></xs:enumeration>
+                <xs:enumeration value="Teclados"></xs:enumeration>
+                <xs:enumeration value="Discos duros"></xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+
+
+
+        <!-- Ahora podemos indicar en type los tipos que hemos definido previamente; en vez de poner los genéricos
+        donde pone xs:decimal, podemos indicar precio -->
+
+        <xs:element name="productos">
+            <xs:complexType>
+                <xs:sequence>
+            <!-- Vamos a indicar que producto es un tipo de dato compuesto con xs:compleType
+                y a las etiquetas simple las metemos dentro de la etiqueta <xs:sequence>-->
+                <!-- minimo de 1, maximo de unbounded (muchos -> no tiene fin, desvinculado) -->
+                    <xs:element name="producto" minOccurs="1" maxOccurs="unbounded"> 
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="nombre" type="TotalLong"/>
+                                <!-- Categoria no obligatoria: minimo de ocurrencias a 0 -->
+                                <xs:element name="categoria" type="ElementoCategoria" minOccurs="0"/>
+                                <!-- Con el choice te pide o uno u otro, como cuando para iniciar sesion te piden obligatoriamente o un usuario o un email, o uno u otro -->
+                                <xs:choice>
+                                    <xs:element name="precio" type="xs:decimal"/>
+                                    <xs:element name="precioConIVA" type="xs:decimal"/>
+                                </xs:choice>
+                                <xs:element name="cantidadStock" type="xs:int" default="1"></xs:element>
+                                <xs:element name="fechaAlta" type="xs:date"/>
+                             </xs:sequence>    
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>    
+            </xs:complexType>
+        </xs:element>
+</xs:schema>
+<!-- EScribir fuera de etiqueta schema y te reescribe solo el codio de arriba-->

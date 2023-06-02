@@ -1,0 +1,10 @@
+thead td{
+    background-color: white;
+}
+tr:nth-child(odd) {
+    background-color: gray;
+  }
+tr td{
+    border-width: 10px;
+    border-color: #262626;
+}

@@ -1,0 +1,59 @@
+<!-- DTD created at Fri Apr 14 08:55:19 CEST 2023 with EditiX XML Editor (http://www.editix.com). Please insert an encoding attribute header for converting any DTD  -->
+<!--Ejemplo de campos de un email
+receptor, asunto, cuerpo -->
+<!ELEMENT bdemail(email)+>
+<!ELEMENT email(receptor,asunto,cuerpo)>
+<!ELEMENT receptor #PCDATA>
+<!ELEMENT asunto #PCDATA>
+<!ELEMENT cuerpo #PCDATA>
+<!--#ANY #EMPTY y #PCDATA son los tipos de los elementos. EMPTY es vacio, ANY que puede tomar cualquier tipo de dato, PCDATA es dato en formato texto -->
+<!--Concepto de ocurrencia: indicar cuantas veces tienen que salir la etiqueta como mínimo. Si queremos que la etiqueta bdemail aparezca más de una vez lo indicamos con el signo +
+Posibles ocurrencias de cada uno de los elementos:
+? -> El elemento puede aparecer 0 o 1 vez 
+* -> El elemento puede aparecer, cero, 1 o varias veces
++El elemento debe aparecer por lo menos una vez (este es obligatorio)--> 
+
+
+
+
+
+<!--17/04/2023 -->
+
+<!-- DTD created at Mon Apr 17 08:37:15 CEST 2023 with EditiX XML Editor (http://www.editix.com). Please insert an encoding attribute header for converting any DTD  -->
+
+<!--Crear un documento DTD que almecene productos electrónicos donde puede almacenar el elemento precio, precioconica (solamente uno  los dos, pero no los dos). Por otro lado, el signo + informa de que el elemento debe aparecer una o carias veces.
+
+    
+Los elementos serian: nombre, precio o precioconiva, categoria (puede aparecer una o varias veces), proveedor -->
+<?xml version ="1.0" emcpdomg="iso-8859-1"?>
+<!ELEMENT  productos (producto)+>
+<!ELEMENT producto (nombre,(precio|precioconiva),categoria+,proveedor)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT precioconiva (#PCDATA)>
+<!ELEMENT categoria (#PCDATA)>
+<!ELEMENT proveedor (#PCDATA)>
+
+<!--Meter datos que sirvan para este modelo -->
+<productos>
+	<producto>
+		<nombre>Teclado QWERTY</nombre>
+		<precio>6.00</precio>
+		<categoria>Teclados</categoria>
+		<proveedor>Huawei</proveedor>
+	</producto>
+	<producto>
+		<nombre>Ratón con cable</nombre>
+		<precioconiva>5.00</precioconiva>
+		<categoria>Ratones</categoria>
+		<proveedor/>
+	</producto>
+	<producto>
+		<nombre>Cañón proyector</nombre>
+		<precio>500</precio>
+		<categoria>Proyectores</categoria>
+		<proveedor>Benq</proveedor>
+	</producto>
+	
+</productos>
+https://mclibre.org/consultar/xml/ejercicios/dtd.html

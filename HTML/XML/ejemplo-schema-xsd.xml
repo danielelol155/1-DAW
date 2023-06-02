@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<productos>
+    <producto>
+        <nombre>Monitor</nombre>
+        <categoria>Monitores</categoria>
+        <precio>80.00</precio>
+        <cantidadStock>10</cantidadStock>
+        <!-- formato dato decha (xsd:date) es yyyy-MM-dd -->
+        <fechaAlta>2023-05-02</fechaAlta>
+
+    </producto>
+    <producto>
+        <nombre>Ratón</nombre>
+        <categoria>Ratones</categoria>
+        <precioConIVA>8.00</precioConIVA>
+        <cantidadStock>60</cantidadStock>
+        <fechaAlta>2023-05-02</fechaAlta>
+    </producto>
+    <!-- Puedo poner o precio o precioIVA pero no ambas -->
+    <!-- <producto>
+        <nombre>Teclado</nombre>
+        <categoria>Teclados</categoria>
+        <precio>10.00</precio>
+        <precioIVA>12.10</precioIVA>
+        <cantidadStrock>60</cantidadStrock>
+        <fechaAlta>2023/05/02</fechaAlta>
+    </producto> -->
+</productos>

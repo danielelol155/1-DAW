@@ -1,0 +1,36 @@
+<!-- DTD created at Wed Apr 19 12:04:15 CEST 2023 with EditiX XML Editor (http://www.editix.com). Please insert an encoding attribute header for converting any DTD  -->
+
+<!ELEMENT bdusuarios (usuario)+>
+<!ELEMENT usuario (nombre,email,fechaNac)>
+<!ELEMENT nombre(#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT acceso (#PCDATA)>
+
+<!ATTLIST usuario clave CDATA #REQUIRED>
+<!ATTLIST usuario dni CDATA #IMPLIED>
+<!ENTITY web "http://miweb.com">
+
+
+
+
+<!ATTLIST nombre ID >
+<usuaio nombre="Pepe">
+</usuaio>
+
+
+
+
+<usuarios>
+	<usuario clave="1234" dni="87654321A">
+		<nombre>Pepe</nombre>
+		<email>pepe@hotmail.com</email>
+		<acceso>el usuario ha accedido a la &web</acceso>	
+	</usuario>
+	<usuario clave="1234" dni="12345678Z">
+		<nombre>Juan</nombre>
+		<email>juan@hotmail.com</email>
+		<fechaNac></fechaNac>	
+	</usuario>
+</usuarios>
+
+

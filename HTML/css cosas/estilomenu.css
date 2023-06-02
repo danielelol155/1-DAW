@@ -1,0 +1,9 @@
+ul {list-style-type: none;font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;}
+    li { float: left;
+            background-color: yellow;color: blue;
+        }
+    ul li  img {padding-right: 50px;}
+    ul li a {background-color: yellow;
+        padding: 10px;
+    text-decoration: none;}

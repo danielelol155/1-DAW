@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>Ejercicio de bootstrap</title>
+    <style>
+        .container{ border:2px rgb(27, 9, 48);
+                    background-color: rgb(127, 168, 221);
+                    border-radius: 6px;}
+    </style>
+</head>
+<body>
+    <div class="container" style= "border:2px solid rgb(45, 47, 126)"><!-- La clase container define un amplio fijo. Si queremos un ancho fijo usamos fluid,
+         que ocupa tod el anccho, y luego tenemos dependiendo de cada pantalla, lg, xs, md-->
+        <div class="row"><!--Con el segundo div, podremos colocar el texto a la derecha, sin ella nos saldria un texto debajo del otro-->
+            <!--Para pantallas grandes se usa el (col-lg-6, el 6 ocupa el 50%), para pantallas medianas usaremos (col-md-6), para pantallas mas pequeñas usaremos el (col-sm-12 , el 12 ocuparia el 100%)-->
+            <!--col-6, ocuparia solamente el 50% para las dos, tanto en pantallas pequeñas como en grandes-->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque dolorum corrupti debitis in voluptatum laboriosam fugiat minus ratione maxime aliquid autem voluptate optio quae earum, unde inventore reiciendis iure.
+                <img class="col-lg-6 col-md-6 col-sm-12 col-xs-12" src="elefante.jpg">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque dolorum corrupti debitis in voluptatum laboriosam fugiat minus ratione maxime aliquid autem voluptate optio quae earum, unde inventore reiciendis iure.</div>
+        </div>
+    </div>    
+        <div class="row">
+            <div class = "col-12"><!--Si queremos espacio entre un fila y otra creamos un div que ocupe toda la pantalla concol-12-->
+                <h1>encabezado h1</h1>
+                <h2>encabezado h2</h2>
+                <h3>encabezado h3</h3>
+                <h4>encabezado h4</h4>
+                <h5>encabezado h5</h5>
+                <h6>encabezado h6</h6>
+            </div>
+            <div class="col-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, atque ex modi repellat nemo labore provident esse quam veniam at quae hic consectetur, impedit eligendi ab inventore expedita. Repellat, aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, atque ex modi repellat nemo labore provident esse quam veniam at quae hic consectetur, impedit eligendi ab inventore expedita. Repellat, aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, atque ex modi repellat nemo labore provident esse quam veniam at quae hic consectetur, impedit eligendi ab inventore expedita. Repellat, aliquid.</p>
+            </div>
+            <!--Podemos hacer tantas columnas que queramos dividiendo 12 (col-12) en varias frcciones como vemos abajo (3 + 5 + 4)-->
+            <div class ="col-3">
+                <p>Ejmplo 1</p>
+                <p>Ejmplo 1</p>
+                <p>Ejmplo 1</p>
+                <p>Ejmplo 1</p>
+            </div>
+            <div class = "col-5">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto sunt, quo eaque doloribus aliquid </p>                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem voluptatum atque cum deleniti odio,</p>
+            </div>
+            <div class = "col-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit iure in maxime id fu</p>
+            </div>
+            </div>
+            <br>
+            <div class="col-8">
+            <!--Alineación-->
+                <p class="text-start">Texto alineado a la inquierda</p>
+                <p class="text-center">Center aligned text.</p>
+                <p class="text-end">Texto alineado a la derecha</p>
+                <p class="text-justify">Justified text.</p><!--centa el texto a lo largo, aumentando los espacios-->
+                <p class="text-success">No wrap text.</p><!---->
+                <p class="text-primary">texto en azul</p>
+                <p class="text-secondary">texto en gris</p>
+                <p class="text-danger">texto en rojo</p>
+                <p class="text-start"></p><!--si ponemos p.classclasstext-start te sale automaticamente <p class="classtext-start"></p> -->
+
+                <div class ="col-12">
+                    <table class="table table-hover table-bordered">
+                        <!-- con la clase table, nos sale unos valores predeterminados para qu enuestra tabla tengo los espacios correspondientes-->
+                        <!-- si queremos que la etiqueta text-sucess funcione quitamos la etiqueta table-sucess de la table -->
+                        <caption>Título de la Tabla de ejemplo</caption>
+                          <tr class="text-sucess"> <!--MIRAR ESTA ETIQUETA EL PROXIMO DIA-->
+                            <td class="hueco"></td>
+                            <th>Columna 1</th>
+                            <th>Columna 2</th>
+                            <th>Columna 3</th>
+                            <th>Columna 4</th>
+                          </tr>
+                          <tr>
+                            <th>Fila 1</th>
+                            <td class="text-">Celda 1,1</td>
+                            <td>Celda 1,2</td>
+                            <td>Celda 1,3</td>
+                            <td>Celda 1,4</td>
+                          </tr>
+                          <tr>
+                            <th>Fila 2</th>
+                            <td>Celda 2,1</td>
+                            <td>Celda 2,2</td>
+                            <td>Celda 2,3</td>
+                            <td>Celda 2,4</td>
+                          </tr>
+                          <tr>
+                            <th>Fila 3</th>
+                            <td>Celda 3,1</td>
+                            <td>Celda 3,2</td>
+                            <td>Celda 3,3</td>
+                            <td>Celda 3,4</td>
+                            </tr>
+                          <tr>
+                            <th>Fila 4</th>
+                            <td>Celda 4,1</td>
+                            <td>Celda 4,2</td>
+                            <td>Celda 4,3</td>
+                            <td>Celda 4,4</td>
+                          </tr>
+                        </table>
+                </div>
+            </div> 
+        </div>  
+        <div>
+           
+        </div>
+</body>
+</html>

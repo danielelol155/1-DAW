@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!ELEMENT productos (producto)+>
+<!ELEMENT producto (nombre,(precio | precioconiva),categoria+,proveedor)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT precioconiva (#PCDATA)>
+<!ELEMENT categoria (#PCDATA)>
+<!ELEMENT proveedor (#PCDATA)>
+<productos>
+		<producto>
+				<nombre>Teclado QWERTY</nombre>
+				<precio>6.00</precio>
+				<categoria>Teclados</categoria>
+				<proveedor>Huawei</proveedor>
+		</producto>
+		<producto>
+				<nombre>Ratón con cable</nombre>
+				<precioconiva>5.00</precioconiva>
+				<categoria>Ratones</categoria>
+				<proveedor/>
+		</producto>
+		<producto>
+				<nombre>Cañón proyector</nombre>
+				<precio>500</precio>
+				<categoria>Proyector</categoria>
+				<categoria>Pantalla</categoria>
+				<proveedor>Benq</proveedor>
+		</producto>
+</productos>

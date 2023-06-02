@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bdemail>
+    <email>
+        <receptor>pepe@hotmail.com</receptor>
+        <asunto>Este es el asunto</asunto>
+        <cuerpo>Este es el cuerpo</cuerpo>
+    </email>
+    <email>
+        <receptor>paco@hotmail.com</receptor>
+        <asunto>Este es el asunto</asunto>
+        <cuerpo>Este es el cuerpo</cuerpo>
+    </email>
+</bdemail>
+
+<!-- DTD created at Fri Apr 14 08:55:19 CEST 2023 with EditiX XML Editor (http://www.editix.com). Please insert an encoding attribute header for converting any DTD  -->
+<!--Ejemplo de campos de un email
+receptor, asunto, cuerpo -->
+
+<!-- <!ELEMENT bdemail(email)+>
+<!ELEMENT email(receptor,asunto,cuerpo)>
+<!ELEMENT receptor #PCDATA>
+<!ELEMENT asunto #PCDATA>
+<!ELEMENT cuerpo #PCDATA> -->
+
+<!--#ANY #EMPTY y #PCDATA son los tipos de los elementos. EMPTY es vacio, ANY que puede tomar cualquier tipo de dato, PCDATA es dato en formato texto -->
+<!--Concepto de ocurrencia: indicar cuantas veces tienen que salir la etiqueta como mínimo. Si queremos que la etiqueta bdemail aparezca más de una vez lo indicamos con el signo +
+Posibles ocurrencias de cada uno de los elementos:
+? -> El elemento puede aparecer 0 o 1 vez 
+* -> El elemento puede aparecer, cero, 1 o varias veces
++El elemento debe aparecer por lo menos una vez (este es obligatorio)--> 

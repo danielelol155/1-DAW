@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumnos>
+    <alumno>
+        <nombre>Alejandro</nombre>
+        <apellidos>Ríos</apellidos>
+        <sexo>H</sexo>
+        <!-- Si no hay datos por ejemplo en la etiqueta sexo, se puede expresar de dos maneras -->
+        <sexo/>
+        <sexo></sexo>
+        <fechaNacimiento>10/03/2004</fechaNacimiento>
+    </alumno>
+    
+    <!-- Otra forma de definir la tabla con la propiedad name, donde le damos un nombre a la columna -->
+    <alumno>
+        <columna name="nombre">Cristina</columna>
+        <columna name="apellidos">Latorre</columna>
+        <columna name="sexo">M</columna>
+        <columna name="fechaNacimiento">25/07/2001</columna>
+    </alumno>
+    
+</alumnos>

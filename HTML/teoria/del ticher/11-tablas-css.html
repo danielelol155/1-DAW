@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablas en CSS</title>
+    <style>
+        table {border: 5px solid blue;
+            border-collapse: collapse;
+            /* Para centrar los elementos de una tabla */
+            text-align: center;
+            /* Para centrar la tabla */
+            margin:auto;
+        }
+        tr,th,td {border: 1px solid red;
+                border-collapse: collapse;
+                padding: 10px;
+                font-size: 6pt;
+        }
+        /* Poner un estilo distinto a los th y td */
+        th {color:brown;background-color: aqua;}
+        td {color:blue;background-color: aquamarine;}
+        /* quitamos el estilo de la primera celda */
+        .hueco {background-color: white; 
+                border-left-color: transparent; 
+                border-top-color: transparent; 
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Título de la Tabla de ejemplo</caption>
+          <tr>
+            <td class="hueco"></td>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+            <th>Columna 3</th>
+            <th>Columna 4</th>
+          </tr>
+          <tr>
+            <th>Fila 1</th>
+            <td>Celda 1,1</td>
+            <td>Celda 1,2</td>
+            <td>Celda 1,3</td>
+            <td>Celda 1,4</td>
+          </tr>
+          <tr>
+            <th>Fila 2</th>
+            <td>Celda 2,1</td>
+            <td>Celda 2,2</td>
+            <td>Celda 2,3</td>
+            <td>Celda 2,4</td>
+          </tr>
+          <tr>
+            <th>Fila 3</th>
+            <td>Celda 3,1</td>
+            <td>Celda 3,2</td>
+            <td>Celda 3,3</td>
+            <td>Celda 3,4</td>
+            </tr>
+          <tr>
+            <th>Fila 4</th>
+            <td>Celda 4,1</td>
+            <td>Celda 4,2</td>
+            <td>Celda 4,3</td>
+            <td>Celda 4,4</td>
+          </tr>
+        </table>
+</body>
+</html>

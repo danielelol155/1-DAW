@@ -1,0 +1,28 @@
+DROP DATABASE IF EXISTS Ej5;
+CREATE DATABASE Ej5 CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE Ej5;
+
+CREATE TABLE Empleados(
+    DNI VARCHAR (10)PRIMARY KEY,
+    Nombre VARCHAR (10)NOT NULL,
+    Direccion VARCHAR (50)NOT NULL,
+    Puesto VARCHAR (20)
+)engine=innodb;
+
+CREATE TABLE Directivo(
+    DNI VARCHAR (10)PRIMARY KEY,
+    Departamento VARCHAR (20)NOT NULL,
+    FOREIGN KEY (DNI) REFERENCES Empleados (DNI)
+)engine=innodb;
+
+CREATE TABLE Tecnico(
+    DNI VARCHAR (10)PRIMARY KEY,
+    Maquina VARCHAR (20)NOT NULL,
+    FOREIGN KEY (DNI) REFERENCES Empleados (DNI)
+)engine=innodb;
+
+CREATE TABLE Comercial(
+    DNI VARCHAR (10)PRIMARY KEY,
+    Comision VARCHAR (10)NOT NULL,
+    FOREIGN KEY (DNI) REFERENCES Empleados (DNI)
+)engine=innodb;

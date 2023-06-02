@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE [
+<!ELEMENT  productos (producto)+>
+<!ELEMENT producto (nombre,(precio|precioconiva),categoria+,proveedor)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT precioconiva (#PCDATA)>
+<!ELEMENT categoria (#PCDATA)>
+<!ELEMENT proveedor (#PCDATA)>
+]>

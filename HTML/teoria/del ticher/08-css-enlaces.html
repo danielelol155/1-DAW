@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Enlaces en CSS</title>
+    <style>
+        body {
+            background-color: cadetblue;
+            /* background-image: url(./imagenes/casa-montana.png);
+            background-repeat: no-repeat;
+            background-size: 100%; */
+        }
+        p a {
+            color: red;
+            font-size: 50pt;
+            text-decoration: none;
+            background-color: grey;
+            /* padding: 20px; */
+            /* padding-left: 20px;
+            padding-right: 30px;
+            padding-top: 40px;
+            padding-bottom: 10px; */
+            padding: 10px 20px 10px 40px;
+            margin: 50px 50px 10px 20px;
+            border: 5px solid black;
+            border-radius: 38px;
+        }
+        p a:visited {
+            color:red;
+        }
+        p a:hover {
+            color: white;
+            background-color: red;
+        }
+        p a:active {
+            background-color: darkred;
+        }
+        
+        /* Hay 4 estados en cada enlace */
+        a:link {
+            color: green;
+            font-size: 30pt;
+            text-decoration: none;
+            background-color: grey;
+            
+        }
+        a:hover {
+            color: purple;
+        }
+        a:visited {
+            color:black;
+        }
+        a:active {
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="http://google.es">Ir a Google</a>
+    </p>
+    <a href="http://iespedrojimenezmontoya.es">Ir a la web del instituto</a>
+</body>
+</html>

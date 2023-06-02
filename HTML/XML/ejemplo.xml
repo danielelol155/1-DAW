@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Concepto de ascendentes, descendentes y hermanos ->
+    Nombre es descendente de ciudad, siendo ciudad ascendente de nombre. pais, continente y nombre serian hermanos -->
+    <!-- En este documento no podemos aplicarle restricciones como las que se le puede aplicar a una variable en programación, por ejemplo, a una edad no se le puede poner un valor de 2000 -->
+    <!-- Para las restricciones usamos herramientas online -> https://www.liquid-technologies.com/online-xml-to-xsd-converter -->
+<ciudades>
+    <ciudad>
+        <nombre>Nueva Delhi</nombre>
+        <pais>India</pais>
+        <continente>Asia</continente>
+        <habitantes>15</habitantes>
+    </ciudad>
+
+    <ciudad>
+        <nombre>Lisboa</nombre>
+        <pais>Portugal</pais>
+        <continente>Europa</continente>
+        <habitantes>2</habitantes>
+    </ciudad>
+
+    <ciudad>
+        <nombre>El Cairo</nombre>
+        <pais>Egipto</pais>
+        <continente>Africa</continente>
+        <habitantes>10</habitantes>
+    </ciudad>
+    <ciudad>
+        <nombre>Paris</nombre>
+        <pais></pais>
+        <!-- Es lo mismo que poner <pais/> -->
+        <continente></continente>
+        <habitantes>10</habitantes>
+    </ciudad>
+    <!-- Atributos de las etiquetas, a ver si podemos definir una ciudad con un atributo nombre con un igual a valor -->
+    <ciudad nombre="Madrid" pais="España" continente="Europa" habitantes="5"></ciudad>
+    
+</ciudades>
