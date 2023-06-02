@@ -254,7 +254,7 @@ public class Formulario extends javax.swing.JFrame {
     private void AceptarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarjButtonActionPerformed
         // TODO add your handling code here:
         AplicarjButtonActionPerformed(evt);
-        mainframe mf = new mainframe();
+        partidos mf = new partidos();
         mf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AceptarjButtonActionPerformed

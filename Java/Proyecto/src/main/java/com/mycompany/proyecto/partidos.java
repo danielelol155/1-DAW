@@ -57,8 +57,8 @@ public class partidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaconsulta = new javax.swing.JTable();
@@ -77,28 +77,27 @@ public class partidos extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setToolTipText("");
 
-        jButton1.setText("Volver");
-
         jButton2.setText("Configuración");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton2)
                 .addContainerGap())
         );
 
@@ -110,6 +109,11 @@ public class partidos extends javax.swing.JFrame {
                 "Codigo", "Equipo Local", "Equipo Visitante", "Puntos Local", "Puntos Visitante", "Temporada"
             }
         ));
+        tablaconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaconsultaMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaconsulta);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -385,14 +389,23 @@ public class partidos extends javax.swing.JFrame {
         // TODO add your handling code here:
         JColorChooser chooser = new JColorChooser();
         Color colorPar = JColorChooser.showDialog(chooser, "Elige el color par", Color.BLACK);
-        CcolorjButton.setBackground(colorPar);
-
         Color colorImpar = JColorChooser.showDialog(chooser, "Elige el color impar", Color.BLACK);
-        CcolorjButton.setBackground(colorPar);
         
         MiRenderer colorear = new MiRenderer(colorPar, colorImpar);
         tablaconsulta.setDefaultRenderer(Object.class, colorear);
     }//GEN-LAST:event_CcolorjButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Formulario form = new Formulario();
+        form.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tablaconsultaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaconsultaMousePressed
+        // TODO add your handling code here:
+        jPopupMenu1.setVisible(true);
+    }//GEN-LAST:event_tablaconsultaMousePressed
 
     /**
      * @param args the command line arguments
@@ -435,13 +448,13 @@ public class partidos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> LocV;
     private javax.swing.JButton alLio;
     private javax.swing.JComboBox<String> equiposBox;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaconsulta;
     // End of variables declaration//GEN-END:variables

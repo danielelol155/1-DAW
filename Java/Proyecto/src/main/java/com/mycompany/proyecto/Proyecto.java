@@ -16,24 +16,11 @@ public class Proyecto {
     public static void main(String[] args) {
 
         try {
-            String filepath = "src\\main\\java\\com\\mycompany\\proyecto\\config.ini";
-            File file = new File(filepath);
-            
-            boolean exists= file.exists();
-            if (exists) {
-                partidos m = new partidos();
-                m.setVisible(true);
-            } else {
-                Formulario formulario = new Formulario();
-                formulario.setVisible(true);
-            }
+            partidos m = new partidos();
+            m.setVisible(true);
         } catch (Exception e) {
             System.out.println(e);
         }
 
-    }
-
-    private static boolean isFileExists(File file) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
