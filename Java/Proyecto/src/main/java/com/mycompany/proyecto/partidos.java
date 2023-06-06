@@ -20,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
+import javax.swing.JMenuItem;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,7 +59,11 @@ public class partidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu = new javax.swing.JPopupMenu();
+        Create = new javax.swing.JMenuItem();
+        Read = new javax.swing.JMenuItem();
+        Update = new javax.swing.JMenuItem();
+        Delete = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -71,6 +77,28 @@ public class partidos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         equiposBox = new javax.swing.JComboBox<>();
         CcolorjButton = new javax.swing.JButton();
+
+        Create.setText("Create");
+        Create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(Create);
+
+        Read.setText("Read");
+        jPopupMenu.add(Read);
+
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(Update);
+
+        Delete.setText("Delete");
+        jPopupMenu.add(Delete);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,8 +138,11 @@ public class partidos extends javax.swing.JFrame {
             }
         ));
         tablaconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaconsultaMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablaconsultaMousePressed(evt);
+                none(evt);
             }
         });
         jScrollPane1.setViewportView(tablaconsulta);
@@ -390,7 +421,7 @@ public class partidos extends javax.swing.JFrame {
         JColorChooser chooser = new JColorChooser();
         Color colorPar = JColorChooser.showDialog(chooser, "Elige el color par", Color.BLACK);
         Color colorImpar = JColorChooser.showDialog(chooser, "Elige el color impar", Color.BLACK);
-        
+
         MiRenderer colorear = new MiRenderer(colorPar, colorImpar);
         tablaconsulta.setDefaultRenderer(Object.class, colorear);
     }//GEN-LAST:event_CcolorjButtonActionPerformed
@@ -402,10 +433,89 @@ public class partidos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void tablaconsultaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaconsultaMousePressed
+    private void none(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_none
         // TODO add your handling code here:
-        jPopupMenu1.setVisible(true);
-    }//GEN-LAST:event_tablaconsultaMousePressed
+        jPopupMenu.setVisible(true);
+    }//GEN-LAST:event_none
+
+    private void tablaconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaconsultaMouseClicked
+        // TODO add your handling code here:
+        if (SwingUtilities.isRightMouseButton(evt)) {
+            int row = tablaconsulta.rowAtPoint(evt.getPoint());
+            tablaconsulta.setRowSelectionInterval(row, row);
+            
+
+            jPopupMenu.show(tablaconsulta, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_tablaconsultaMouseClicked
+
+    private void CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateActionPerformed
+        // TODO add your handling code here:
+        CreateFrame cf = new CreateFrame();
+        cf.setVisible(true);
+    }//GEN-LAST:event_CreateActionPerformed
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
+        int fila = tablaconsulta.getSelectedRow();
+        
+        int codigo = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 0).toString());
+        String equipoL = this.tablaconsulta.getValueAt(fila, 1).toString();
+        String equipoV = this.tablaconsulta.getValueAt(fila, 2).toString();
+        int puntosL = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 3).toString());
+        int puntosV = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 4).toString());
+        String temporada=this.tablaconsulta.getValueAt(fila, 5).toString();;
+        
+        
+        
+        Connection con; //declaramos las variables necesarias.
+        Statement sentencia;
+        String sql;
+        ResultSet rs;
+        //Recogemos la información de confi
+        String ip = "";
+        String usuario = "";
+        String contraseña = "";
+        String Driver = "";
+        String Puerto = "";
+        String bdd = "";
+        try (ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream("src\\main\\java\\com\\mycompany\\proyecto\\config.ini")) {
+        }) {
+
+            try {
+                ip = (String) flujoEntrada.readObject();
+                usuario = (String) flujoEntrada.readObject();
+                contraseña = (String) flujoEntrada.readObject();
+                Driver = (String) flujoEntrada.readObject();
+                Puerto = (String) flujoEntrada.readObject();
+                bdd = (String) flujoEntrada.readObject();
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        String url = "jdbc:mysql://" + ip + ":" + Puerto + "/" + bdd;
+
+        try {
+
+            //lo pedido en cuestion
+            con = DriverManager.getConnection(url, usuario, contraseña);
+            
+            sql = "UPDATE partidos SET equipo_local= '"+equipoL+"', equipo_visitante='"+equipoV+"', puntos_local = "+puntosL+", puntos_visitante= "+puntosV+", temporada= '"+temporada+"', WHERE codigo = "+codigo+";";
+
+            System.out.println(sql);
+            //sql = "SELECT * FROM partidos WHERE equipo_local = 'Raptors';";
+            sentencia = (Statement) con.createStatement();
+            sentencia.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_UpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +555,11 @@ public class partidos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CcolorjButton;
     private javax.swing.JComboBox<String> Confbox;
+    private javax.swing.JMenuItem Create;
+    private javax.swing.JMenuItem Delete;
     private javax.swing.JComboBox<String> LocV;
+    private javax.swing.JMenuItem Read;
+    private javax.swing.JMenuItem Update;
     private javax.swing.JButton alLio;
     private javax.swing.JComboBox<String> equiposBox;
     private javax.swing.JButton jButton2;
@@ -454,7 +568,7 @@ public class partidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaconsulta;
     // End of variables declaration//GEN-END:variables
