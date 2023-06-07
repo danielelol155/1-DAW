@@ -1,11 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package com.mycompany.proyecto;
 
 import java.awt.event.ActionEvent;
-import static java.awt.image.ImageObserver.WIDTH;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -19,26 +18,25 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author usuario
  */
-public class CreateFrame extends javax.swing.JFrame {
+public class createdialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form Create
+     * Creates new form createdialog
      */
-    public CreateFrame() {
+    public createdialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         ActionEvent evt = null;
-
+        
         ConfLocActionPerformed(evt);
         ConfVisActionPerformed(evt);
         EquipoVisActionPerformed(evt);
         EquipoLocActionPerformed(evt);
-
     }
 
     int codigo;
@@ -59,32 +57,37 @@ public class CreateFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        Cancelar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         ConfVis = new javax.swing.JComboBox<>();
         ConfLoc = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         EquipoLoc = new javax.swing.JComboBox<>();
         EquipoVis = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         Codigo = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         Temporada = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         PuntosVis = new javax.swing.JTextField();
         PuntosLoc = new javax.swing.JTextField();
-        CancelarJButton = new javax.swing.JButton();
         CrearJButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Crear partido");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Equipo Visitante");
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel5.setText("Equipo Visitante");
 
         ConfVis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "East", "West" }));
         ConfVis.addActionListener(new java.awt.event.ActionListener() {
@@ -100,9 +103,9 @@ public class CreateFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Conferencia");
+        jLabel6.setText("Conferencia");
 
-        jLabel4.setText("Equipo");
+        jLabel7.setText("Equipo");
 
         EquipoLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "76ers" }));
         EquipoLoc.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +121,9 @@ public class CreateFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Equipo local");
+        jLabel8.setText("Equipo local");
 
-        jLabel5.setText("Código");
+        jLabel9.setText("Código");
 
         Codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +131,7 @@ public class CreateFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Temporada");
+        jLabel10.setText("Temporada");
 
         Temporada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +139,7 @@ public class CreateFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Puntos");
+        jLabel11.setText("Puntos");
 
         PuntosVis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,86 +153,78 @@ public class CreateFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
                     .addComponent(ConfLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConfVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel7)
                     .addComponent(EquipoLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EquipoVis, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PuntosVis, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PuntosLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel11))
                 .addGap(78, 78, 78))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(EquipoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(EquipoVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PuntosVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(PuntosVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConfVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(PuntosLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
                             .addComponent(ConfLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                            .addComponent(jLabel9)
                             .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel6)
-                                .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ConfVis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10)
+                            .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
-
-        CancelarJButton.setText("Cancelar");
-        CancelarJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarJButtonActionPerformed(evt);
-            }
-        });
 
         CrearJButton.setText("Crear partido");
         CrearJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -246,21 +241,21 @@ public class CreateFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 401, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CrearJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CancelarJButton))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(Cancelar))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CancelarJButton)
+                    .addComponent(Cancelar)
                     .addComponent(CrearJButton))
                 .addContainerGap())
         );
@@ -268,9 +263,14 @@ public class CreateFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
+
     private void ConfVisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfVisActionPerformed
         // TODO add your handling code here:
-        confv = ConfVis.getSelectedItem().toString();
+        String confv = ConfVis.getSelectedItem().toString();
 
         Connection con; //declaramos las variables necesarias.
         Statement sentencia;
@@ -351,7 +351,6 @@ public class CreateFrame extends javax.swing.JFrame {
             EquipoVis.setModel(e);
         }
         EquipoVisActionPerformed(evt);
-
     }//GEN-LAST:event_ConfVisActionPerformed
 
     private void ConfLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfLocActionPerformed
@@ -440,13 +439,35 @@ public class CreateFrame extends javax.swing.JFrame {
         EquipoLocActionPerformed(evt);
     }//GEN-LAST:event_ConfLocActionPerformed
 
+    private void EquipoLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipoLocActionPerformed
+        // TODO add your handling code here:
+        equipoL = EquipoLoc.getSelectedItem().toString();
+    }//GEN-LAST:event_EquipoLocActionPerformed
+
     private void EquipoVisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipoVisActionPerformed
         // TODO add your handling code here:
         equipoV = EquipoVis.getSelectedItem().toString();
     }//GEN-LAST:event_EquipoVisActionPerformed
 
+    private void CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CodigoActionPerformed
+
+    private void TemporadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TemporadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TemporadaActionPerformed
+
+    private void PuntosVisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuntosVisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PuntosVisActionPerformed
+
+    private void PuntosLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuntosLocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PuntosLocActionPerformed
+
     private void CrearJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearJButtonActionPerformed
         // TODO add your handling code here:
+
         //"INSERT INTO partidos VALUES ("+codigo+",'"+equipoL+"','"+equipoV+"',"+puntosL+","puntosV+",'"+temporada"');"
         Connection con; //declaramos las variables necesarias.
         Statement sentencia;
@@ -502,32 +523,6 @@ public class CreateFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CrearJButtonActionPerformed
 
-    private void CancelarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarJButtonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_CancelarJButtonActionPerformed
-
-    private void CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CodigoActionPerformed
-
-    private void TemporadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TemporadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TemporadaActionPerformed
-
-    private void PuntosVisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuntosVisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PuntosVisActionPerformed
-
-    private void PuntosLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuntosLocActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PuntosLocActionPerformed
-
-    private void EquipoLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipoLocActionPerformed
-        // TODO add your handling code here:
-        equipoL = EquipoLoc.getSelectedItem().toString();
-    }//GEN-LAST:event_EquipoLocActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -545,27 +540,33 @@ public class CreateFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createdialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createdialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createdialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createdialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateFrame().setVisible(true);
+                createdialog dialog = new createdialog(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelarJButton;
+    private javax.swing.JButton Cancelar;
     private javax.swing.JTextField Codigo;
     private javax.swing.JComboBox<String> ConfLoc;
     private javax.swing.JComboBox<String> ConfVis;
@@ -575,14 +576,13 @@ public class CreateFrame extends javax.swing.JFrame {
     private javax.swing.JTextField PuntosLoc;
     private javax.swing.JTextField PuntosVis;
     private javax.swing.JTextField Temporada;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

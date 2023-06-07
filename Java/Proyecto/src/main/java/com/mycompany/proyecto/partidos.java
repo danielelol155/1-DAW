@@ -6,6 +6,8 @@ package com.mycompany.proyecto;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,9 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
-import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -43,12 +43,17 @@ public class partidos extends javax.swing.JFrame {
         LocVActionPerformed(evt);
         ConfboxActionPerformed(evt);
         equiposBoxActionPerformed(evt);
+        generartemps();
+        TemporadaIActionPerformed(evt);
+        TemporadaFActionPerformed(evt);
 
     }
 
     String localvisit;
     String conf;
     String equipo = "";
+    String tempI;
+    String tempF;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +66,6 @@ public class partidos extends javax.swing.JFrame {
 
         jPopupMenu = new javax.swing.JPopupMenu();
         Create = new javax.swing.JMenuItem();
-        Read = new javax.swing.JMenuItem();
         Update = new javax.swing.JMenuItem();
         Delete = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
@@ -77,6 +81,10 @@ public class partidos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         equiposBox = new javax.swing.JComboBox<>();
         CcolorjButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TemporadaI = new javax.swing.JComboBox<>();
+        TemporadaF = new javax.swing.JComboBox<>();
 
         Create.setText("Create");
         Create.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +93,6 @@ public class partidos extends javax.swing.JFrame {
             }
         });
         jPopupMenu.add(Create);
-
-        Read.setText("Read");
-        jPopupMenu.add(Read);
 
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +103,11 @@ public class partidos extends javax.swing.JFrame {
         jPopupMenu.add(Update);
 
         Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
         jPopupMenu.add(Delete);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,30 +200,56 @@ public class partidos extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Temporada Final");
+
+        jLabel5.setText("Temporada Inicial");
+
+        TemporadaI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TemporadaI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TemporadaIActionPerformed(evt);
+            }
+        });
+
+        TemporadaF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TemporadaF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TemporadaFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(23, 23, 23)
-                        .addComponent(LocV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Confbox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(equiposBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(alLio))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CcolorjButton)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LocV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Confbox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(equiposBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TemporadaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TemporadaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(alLio)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CcolorjButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +264,11 @@ public class partidos extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(Confbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(equiposBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(equiposBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TemporadaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(TemporadaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -396,11 +436,21 @@ public class partidos extends javax.swing.JFrame {
 
             //lo pedido en cuestion
             con = DriverManager.getConnection(url, usuario, contraseña);
-            sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "';";
+            if (tempF.equals(tempI)) {
+                sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND temporada='" + tempI + "';";
+            } else {
+
+                if (tempI.charAt(0) == '9' && tempF.charAt(0) != '9') {
+                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND (temporada BETWEEN '" + tempF + "' AND '" + tempI + "') ORDER BY codigo;";
+                } else {
+                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND (temporada BETWEEN '" + tempI + "' AND '" + tempF + "');";
+                }
+            }
 
             System.out.println(sql);
             //sql = "SELECT * FROM partidos WHERE equipo_local = 'Raptors';";
             sentencia = (Statement) con.createStatement();
+
             rs = sentencia.executeQuery(sql);
 
             DefaultTableModel dfmbuscar = new DefaultTableModel();
@@ -443,7 +493,6 @@ public class partidos extends javax.swing.JFrame {
         if (SwingUtilities.isRightMouseButton(evt)) {
             int row = tablaconsulta.rowAtPoint(evt.getPoint());
             tablaconsulta.setRowSelectionInterval(row, row);
-            
 
             jPopupMenu.show(tablaconsulta, evt.getX(), evt.getY());
         }
@@ -451,23 +500,91 @@ public class partidos extends javax.swing.JFrame {
 
     private void CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateActionPerformed
         // TODO add your handling code here:
-        CreateFrame cf = new CreateFrame();
-        cf.setVisible(true);
+        createdialog cd = new createdialog(this, rootPaneCheckingEnabled);
+
+        cd.setVisible(rootPaneCheckingEnabled);
+
+        alLioActionPerformed(evt);
+        generartemps();
     }//GEN-LAST:event_CreateActionPerformed
+
+    public void llamarCreate() {
+        ActionEvent evt = null;
+        CreateActionPerformed(evt);
+    }
+
+    public void holawenas() {
+        System.out.println("hola wenas");
+    }
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
         int fila = tablaconsulta.getSelectedRow();
-        
+
         int codigo = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 0).toString());
         String equipoL = this.tablaconsulta.getValueAt(fila, 1).toString();
         String equipoV = this.tablaconsulta.getValueAt(fila, 2).toString();
         int puntosL = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 3).toString());
         int puntosV = Integer.parseInt(this.tablaconsulta.getValueAt(fila, 4).toString());
-        String temporada=this.tablaconsulta.getValueAt(fila, 5).toString();;
-        
-        
-        
+        String temporada = this.tablaconsulta.getValueAt(fila, 5).toString();;
+
+        Connection con; //declaramos las variables necesarias.
+        Statement sentencia;
+        String sql;
+        ResultSet rs;
+        //Recogemos la información de confi
+        String ip = "";
+        String usuario = "";
+        String contraseña = "";
+        String Driver = "";
+        String Puerto = "";
+        String bdd = "";
+        try (ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream("src\\main\\java\\com\\mycompany\\proyecto\\config.ini")) {
+        }) {
+
+            try {
+                ip = (String) flujoEntrada.readObject();
+                usuario = (String) flujoEntrada.readObject();
+                contraseña = (String) flujoEntrada.readObject();
+                Driver = (String) flujoEntrada.readObject();
+                Puerto = (String) flujoEntrada.readObject();
+                bdd = (String) flujoEntrada.readObject();
+
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            generartemps();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        String url = "jdbc:mysql://" + ip + ":" + Puerto + "/" + bdd;
+
+        try {
+
+            //lo pedido en cuestion
+            con = DriverManager.getConnection(url, usuario, contraseña);
+
+            sql = "UPDATE partidos SET equipo_local = '" + equipoL + "', equipo_visitante='" + equipoV + "', puntos_local = " + puntosL + ", puntos_visitante= " + puntosV + ", temporada= '" + temporada + "'"
+                    + " WHERE codigo = " + codigo + ";";
+
+            System.out.println(sql);
+            //sql = "SELECT * FROM partidos WHERE equipo_local = 'Raptors';";
+            sentencia = (Statement) con.createStatement();
+            sentencia.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+        int fila = tablaconsulta.getSelectedRow();
+        String codigo = tablaconsulta.getValueAt(fila, 0).toString();
+
         Connection con; //declaramos las variables necesarias.
         Statement sentencia;
         String sql;
@@ -504,18 +621,95 @@ public class partidos extends javax.swing.JFrame {
 
             //lo pedido en cuestion
             con = DriverManager.getConnection(url, usuario, contraseña);
-            
-            sql = "UPDATE partidos SET equipo_local= '"+equipoL+"', equipo_visitante='"+equipoV+"', puntos_local = "+puntosL+", puntos_visitante= "+puntosV+", temporada= '"+temporada+"', WHERE codigo = "+codigo+";";
+
+            sql = "DELETE FROM partidos WHERE codigo = " + codigo + ";";
 
             System.out.println(sql);
             //sql = "SELECT * FROM partidos WHERE equipo_local = 'Raptors';";
             sentencia = (Statement) con.createStatement();
             sentencia.executeUpdate(sql);
 
+            alLioActionPerformed(evt);
+            generartemps();
+
         } catch (SQLException e) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
         }
-    }//GEN-LAST:event_UpdateActionPerformed
+
+
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void TemporadaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TemporadaIActionPerformed
+        // TODO add your handling code here:
+
+        tempI = TemporadaI.getSelectedItem().toString();
+
+
+    }//GEN-LAST:event_TemporadaIActionPerformed
+
+    private void TemporadaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TemporadaFActionPerformed
+        // TODO add your handling code here:
+        tempF = TemporadaF.getSelectedItem().toString();
+    }//GEN-LAST:event_TemporadaFActionPerformed
+
+    private void generartemps() {
+        Connection con; //declaramos las variables necesarias.
+        Statement sentencia;
+        String sql;
+        ResultSet rs;
+        //Recogemos la información de confi
+        String ip = "";
+        String usuario = "";
+        String contraseña = "";
+        String Driver = "";
+        String Puerto = "";
+        String bdd = "";
+        try (ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream("src\\main\\java\\com\\mycompany\\proyecto\\config.ini")) {
+        }) {
+
+            try {
+                ip = (String) flujoEntrada.readObject();
+                usuario = (String) flujoEntrada.readObject();
+                contraseña = (String) flujoEntrada.readObject();
+                Driver = (String) flujoEntrada.readObject();
+                Puerto = (String) flujoEntrada.readObject();
+                bdd = (String) flujoEntrada.readObject();
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        String url = "jdbc:mysql://" + ip + ":" + Puerto + "/" + bdd;
+
+        List<String> equipos_conf = new ArrayList<>();
+
+        try {
+            con = DriverManager.getConnection(url, usuario, contraseña);
+
+            sql = "SELECT DISTINCT temporada FROM partidos";
+            sentencia = (Statement) con.createStatement();
+            rs = sentencia.executeQuery(sql);
+
+            while (rs.next()) {
+                String a = rs.getString("temporada");
+                equipos_conf.add(a);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        String wiiii[] = equipos_conf.toArray(new String[0]);
+
+        DefaultComboBoxModel i = new DefaultComboBoxModel(wiiii);
+        DefaultComboBoxModel f = new DefaultComboBoxModel(wiiii);
+
+        TemporadaI.setModel(i);
+        TemporadaF.setModel(f);
+    }
 
     /**
      * @param args the command line arguments
@@ -558,7 +752,8 @@ public class partidos extends javax.swing.JFrame {
     private javax.swing.JMenuItem Create;
     private javax.swing.JMenuItem Delete;
     private javax.swing.JComboBox<String> LocV;
-    private javax.swing.JMenuItem Read;
+    private javax.swing.JComboBox<String> TemporadaF;
+    private javax.swing.JComboBox<String> TemporadaI;
     private javax.swing.JMenuItem Update;
     private javax.swing.JButton alLio;
     private javax.swing.JComboBox<String> equiposBox;
@@ -566,6 +761,8 @@ public class partidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu;
