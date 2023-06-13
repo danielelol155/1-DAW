@@ -24,6 +24,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -85,6 +86,21 @@ public class partidos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         TemporadaI = new javax.swing.JComboBox<>();
         TemporadaF = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        MediaPLocal = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TotPartidos = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        MediaPVisit = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TotPLocal = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TotPVisit = new javax.swing.JTextArea();
 
         Create.setText("Create");
         Create.addActionListener(new java.awt.event.ActionListener() {
@@ -272,16 +288,83 @@ public class partidos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel6.setText("Total Partidos");
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        MediaPLocal.setColumns(20);
+        MediaPLocal.setRows(5);
+        jScrollPane2.setViewportView(MediaPLocal);
+
+        jLabel7.setText("Media Puntos locales");
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        TotPartidos.setColumns(20);
+        TotPartidos.setRows(5);
+        jScrollPane3.setViewportView(TotPartidos);
+
+        jLabel8.setText("Media Puntos Visitantes");
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        MediaPVisit.setColumns(20);
+        MediaPVisit.setRows(5);
+        jScrollPane4.setViewportView(MediaPVisit);
+
+        jLabel9.setText("Total Puntos locales");
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        TotPLocal.setColumns(20);
+        TotPLocal.setRows(5);
+        jScrollPane5.setViewportView(TotPLocal);
+
+        jLabel10.setText("Total Puntos Visitantes");
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        TotPVisit.setColumns(20);
+        TotPVisit.setRows(5);
+        jScrollPane6.setViewportView(TotPVisit);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -290,14 +373,61 @@ public class partidos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private double mediaList(int col) {
+        TableModel model = tablaconsulta.getModel();
+        int rowCount = model.getRowCount();
+
+        int total = 0;
+
+        for (int row = 0; row < rowCount; row++) {
+            Object value = model.getValueAt(row, col);
+
+            total += Integer.parseInt(value+"");
+        }
+
+        double media = (total/tablaconsulta.getRowCount());
+
+        return media;
+    }
+    
+    private int totList(int col)
+    {
+        TableModel model = tablaconsulta.getModel();
+        int rowCount = model.getRowCount();
+
+        int total = 0;
+
+        for (int row = 0; row < rowCount; row++) {
+            Object value = model.getValueAt(row, col);
+
+            total += Integer.parseInt(value+"");
+        }
+
+
+        return total;
+    }
+
 
     private void LocVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocVActionPerformed
         // TODO add your handling code here: 
@@ -397,6 +527,7 @@ public class partidos extends javax.swing.JFrame {
         equipo = equiposBox.getSelectedItem().toString();
     }//GEN-LAST:event_equiposBoxActionPerformed
 
+    //Consulta select
     private void alLioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alLioActionPerformed
         // TODO add your handling code here:
         String equipo = equiposBox.getSelectedItem().toString();
@@ -404,7 +535,7 @@ public class partidos extends javax.swing.JFrame {
         Statement sentencia;
         String sql;
         ResultSet rs;
-        //Recogemos la información de confi
+        //Recogemos la información de confi y nos conectamos a la base de datos
         String ip = "";
         String usuario = "";
         String contraseña = "";
@@ -432,6 +563,7 @@ public class partidos extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://" + ip + ":" + Puerto + "/" + bdd;
 
+        //generamos la consulta select
         try {
 
             //lo pedido en cuestion
@@ -441,9 +573,48 @@ public class partidos extends javax.swing.JFrame {
             } else {
 
                 if (tempI.charAt(0) == '9' && tempF.charAt(0) != '9') {
-                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND (temporada BETWEEN '" + tempF + "' AND '" + tempI + "') ORDER BY codigo;";
+                    //codigo de alejandro
+                    String temp[];
+
+                    temp = tempI.split("/");
+                    int inicio = Integer.parseInt(temp[0]) % 100;
+
+                    temp = tempF.split("/");
+                    //aquí se encuentra el pequeño cambio
+                    int fin = (Integer.parseInt(temp[0]) + 1) % 100;
+
+                    String sqlIn = "in ('";
+
+                    int anyoInicioTemporada = inicio;
+
+                    while (anyoInicioTemporada != fin) {
+                        int anyoFinTemporada = (inicio + 1) % 100;
+
+                        String cadena[] = new String[2];
+
+                        cadena[0] = "" + anyoInicioTemporada;
+                        if (anyoInicioTemporada < 9) {
+                            cadena[0] = "0" + cadena[0];
+                        }
+
+                        cadena[1] = "" + anyoFinTemporada;
+                        if (anyoFinTemporada < 9) {
+                            cadena[1] = "0" + cadena[1];
+                        }
+
+                        sqlIn = sqlIn + "" + cadena[0] + "/" + cadena[1] + "','";
+
+                        inicio++;
+                        anyoInicioTemporada = inicio % 100;
+                    }
+
+                    sqlIn = sqlIn.substring(0, sqlIn.length() - 2);
+
+                    sqlIn = sqlIn + ")";
+
+                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND temporada " + sqlIn + ";";
                 } else {
-                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND (temporada BETWEEN '" + tempI + "' AND '" + tempF + "');";
+                    sql = "SELECT * FROM partidos WHERE equipo_" + this.localvisit + "='" + this.equipo + "' AND temporada BETWEEN '" + tempI + "' AND '" + tempF + "';";
                 }
             }
 
@@ -460,6 +631,15 @@ public class partidos extends javax.swing.JFrame {
             while (rs.next()) {
                 dfmbuscar.addRow(new Object[]{rs.getString("codigo"), rs.getString("equipo_local"), rs.getString("equipo_visitante"), rs.getString("puntos_local"), rs.getString("puntos_visitante"), rs.getString("Temporada")});
             }
+
+            TotPartidos.setText(tablaconsulta.getRowCount() + "");
+
+            //Aquí pasamos los valores de la columna puntos local
+            MediaPLocal.setText(mediaList(3) + "");
+            MediaPVisit.setText(mediaList(4) + "");
+            
+            TotPLocal.setText(totList(3)+"");
+            TotPVisit.setText(totList(4)+"");
 
         } catch (SQLException e) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
@@ -574,6 +754,8 @@ public class partidos extends javax.swing.JFrame {
             //sql = "SELECT * FROM partidos WHERE equipo_local = 'Raptors';";
             sentencia = (Statement) con.createStatement();
             sentencia.executeUpdate(sql);
+            
+            alLioActionPerformed(evt);
 
         } catch (SQLException e) {
             Logger.getLogger(Proyecto.class.getName()).log(Level.SEVERE, null, e);
@@ -752,21 +934,36 @@ public class partidos extends javax.swing.JFrame {
     private javax.swing.JMenuItem Create;
     private javax.swing.JMenuItem Delete;
     private javax.swing.JComboBox<String> LocV;
+    private javax.swing.JTextArea MediaPLocal;
+    private javax.swing.JTextArea MediaPVisit;
     private javax.swing.JComboBox<String> TemporadaF;
     private javax.swing.JComboBox<String> TemporadaI;
+    private javax.swing.JTextArea TotPLocal;
+    private javax.swing.JTextArea TotPVisit;
+    private javax.swing.JTextArea TotPartidos;
     private javax.swing.JMenuItem Update;
     private javax.swing.JButton alLio;
     private javax.swing.JComboBox<String> equiposBox;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable tablaconsulta;
     // End of variables declaration//GEN-END:variables
 }

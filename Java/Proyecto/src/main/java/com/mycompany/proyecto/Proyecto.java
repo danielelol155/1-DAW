@@ -16,8 +16,18 @@ public class Proyecto {
     public static void main(String[] args) {
 
         try {
-            partidos m = new partidos();
-            m.setVisible(true);
+            String rutaArchivo = "src\\main\\java\\com\\mycompany\\proyecto\\config.ini"; // Ruta del archivo que deseas comprobar
+
+            File archivo = new File(rutaArchivo);
+
+            if (archivo.exists()) {
+                partidos m = new partidos();
+                m.setVisible(true);
+            } else {
+                Formulario f = new Formulario();
+                f.setVisible(true);
+            }
+
         } catch (Exception e) {
             System.out.println(e);
         }

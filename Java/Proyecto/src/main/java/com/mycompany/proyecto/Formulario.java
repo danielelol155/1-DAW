@@ -110,7 +110,12 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
 
-        ContinuarjButton.setText("Continuar");
+        ContinuarjButton.setText("Volver");
+        ContinuarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContinuarjButtonActionPerformed(evt);
+            }
+        });
 
         AceptarjButton.setText("Aceptar");
         AceptarjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -258,6 +263,13 @@ public class Formulario extends javax.swing.JFrame {
         mf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AceptarjButtonActionPerformed
+
+    private void ContinuarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuarjButtonActionPerformed
+        // TODO add your handling code here:
+        partidos p = new partidos();
+        p.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
+    }//GEN-LAST:event_ContinuarjButtonActionPerformed
 
     private void mostrarValoresconfigurados() {
         try (ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream("src\\main\\java\\com\\mycompany\\proyecto\\config.ini")) {
